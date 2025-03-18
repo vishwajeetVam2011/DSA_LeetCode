@@ -1,0 +1,117 @@
+import java.sql.SQLOutput;
+import java.util.*;
+
+public class Hashing {
+    public static void main(String[] args) {
+        HashMap<String , Integer> map = new HashMap<>(); // This way we can create HashMap.
+        map.put("Vishwajeet Vam" , 65); // put("Key", Object) -> it will put or add the key and pair in HashMap.
+        map.put("Nitish Kumar", 2);
+        map.put("Dilip",72);
+        map.put("Mukesh",63);
+        System.out.println(map); // value's place may change in HashMap.
+
+        if(map.containsKey("dilip")){ //containsKey("Key") -> it will check key , whether it is present or not.
+            System.out.println("Key is present ");
+        }else{
+            System.out.println("Key is not present !!");
+        }
+
+        //map.get("Key") -> it will give value of key.
+        System.out.println(map.get("Vishwajeet Vam")); //65
+        System.out.println(map.get("dilip")); // null
+
+        //Iterating all key and values using for each loop.
+ for (Map.Entry<String,Integer> E: map.entrySet()){
+     System.out.println(E.getKey() +" : "+  E.getValue());
+ }
+
+ for(String K : map.keySet()){
+     System.out.println("Key is :  " + K +" , "+  "Value : "+ map.get(K));
+ }
+
+ for(Integer V : map.values()){
+     System.out.println("Value is : " + V);
+ }
+
+
+ // Removal of key and values from the HashMap.
+// map.remove("Dilip"); // it will remove kay and values both.
+// map.remove("Mukesh", 63); // It will remove Kay and Value if given value is true Otherwise it will not remove.
+
+        System.out.println(map);
+
+        // For updating key's  value in the Hash map.
+        map.replace("Vishwajeet Vam", 100); //  If the key does not exist, it won't update anything.
+        map.replace("Dilip", 200);
+        System.out.println(map);
+
+// It will clear the whole keys and Values , "Removes all entries from HashMap"
+        map.clear();
+        System.out.println(map);
+
+
+
+    }
+}
+//-------------------------------------------------------------------------------------------------------
+
+import java.util.Arrays;
+import java.util.OptionalInt;
+import java.util.Scanner;
+
+public class Hash {
+    public static void main(String[] args) {
+        /*
+        1. ask for array size.
+        2. take input in array.
+        3. ask which number he wants.
+        4. print repetation of numbers.
+         */
+//        1.
+        System.out.print("Enter Size of array : ");
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+
+//        2.
+        int [] arr= new int[n];
+        System.out.print("Enter numbers in array : ");
+        for (int i =0; i < arr.length; i++){
+            arr[i]= in.nextInt();
+        }
+//        3.
+        //finding max in array.
+        int max =arr[0];
+        for (int i=0; i < arr.length; i++){
+             if (arr[i] > max){
+                 max = arr[i];
+             }
+        }
+
+        int[] hash=new int[max+1];
+        for (int i=0 ; i < n ; i++){
+            hash[arr[i]]++;
+        }
+        System.out.println(Arrays.toString(arr));
+        System.out.println();
+        System.out.println("Frequency of each elements are :");
+        for (int i = 0; i < max; i++){
+            if (hash[i] > 0){
+                System.out.println(i+" Is present "+hash[i]+" times.");
+            }
+        }
+//        System.out.println("Enter Number of Queries : ");
+//        int num=in.nextInt();
+//        while (num-- > 0){
+//            System.out.print("Enter number to check: ");
+//            int number = in.nextInt();
+//            if (number <= max){
+//                System.out.println(hash[number]);
+//            }else {
+//                System.out.println("0");
+//            }
+//
+//        }
+        in.close();
+
+    }
+}
